@@ -22,7 +22,7 @@ class Vector(Generic[T]):
 
     def __str__(self) -> str:
         """Print the vector in a readable format."""
-        return str(self.values)
+        return "Vector: " + str(self.values)
 
     def size(self) -> int:
         """Return the size (length) of the vector."""
@@ -94,7 +94,8 @@ class Matrix(Generic[T]):
 
     def __str__(self) -> str:
         """Print the matrix in a readable format."""
-        return "[" + "\n".join([str(row) for row in self.values]) + "]"
+        rows = ["[" + ", ".join(map(str, row)) + "]" for row in self.values]
+        return "Matrix:\n" + "\n".join(rows)
 
     def to_vector(self) -> 'Vector':
         """Reshape the matrix into a vector."""
