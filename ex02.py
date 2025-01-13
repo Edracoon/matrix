@@ -28,10 +28,15 @@ The linear interpolation function (lerp) takes three arguments:
     - v: scalar, vector, or matrix
     - t: scalar
 
-It returns the linear interpolation between u and v using the scalar t.
-The formula used is: f(u, v, t) = u + t * (v - u)
+    u as the starting point
+    v as the ending point
+    t as the interpolation factor (decimal between 0 and 1)
 
-The function should work with scalars, vectors, and matrices.
+It returns the linear interpolation between u and v using the scalar t.
+The formula used is:
+
+    f(u, v, t) = u + t * (v - u)
+
 For scalars, the function should return the lerp between two scalars.
 For vectors, the function should return the lerp between two vectors.
 For matrices, the function should return the lerp between two matrices.
