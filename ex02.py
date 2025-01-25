@@ -1,5 +1,6 @@
 """
-[In Mathematics]
+                    Linear Interpolation
+In Mathematics
     -> https://fr.wikipedia.org/wiki/Interpolation_lin%C3%A9aire
     -> https://www.youtube.com/watch?v=M0R8-rYed0I
 
@@ -41,6 +42,7 @@ For scalars, the function should return the lerp between two scalars.
 For vectors, the function should return the lerp between two vectors.
 For matrices, the function should return the lerp between two matrices.
 """
+
 from typing import Union
 from math import fma
 from lib import Vector, Matrix
@@ -89,19 +91,21 @@ def lerp(
 
 def main():
     try:
-        print(lerp(0., 1., 0.))  # 0.0
-        print(lerp(0., 1., 1.))  # 1.0
-        print(lerp(0., 1., 0.5))  # 0.5
-        print(lerp(21., 42., 0.3))  # 27.3
-        print(lerp(Vector([2., 1.]), Vector([4., 2.]), 0.3))  # [2.6, 1.3]
-        print(lerp(
-            Matrix([[2., 1.], [3., 4.]]),
-            Matrix([[20., 10.], [30., 40.]]),
-            0.5
-        ))  # [[11.0, 5.5], [16.5, 22.0]]
+        print(lerp(0.0, 1.0, 0.0))  # 0.0
+        print(lerp(0.0, 1.0, 1.0))  # 1.0
+        print(lerp(0.0, 1.0, 0.5))  # 0.5
+        print(lerp(21.0, 42.0, 0.3))  # 27.3
+        print(lerp(Vector([2.0, 1.0]), Vector([4.0, 2.0]), 0.3))  # [2.6, 1.3]
+        print(
+            lerp(
+                Matrix([[2.0, 1.0], [3.0, 4.0]]),
+                Matrix([[20.0, 10.0], [30.0, 40.0]]),
+                0.5,
+            )
+        )  # [[11.0, 5.5], [16.5, 22.0]]
     except Exception as e:
         print(e)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
