@@ -178,3 +178,46 @@ class Matrix(Generic[T]):
             for x in range(len(self.values[y])):
                 self.values[y][x] *= scalar
         return self
+
+    def mul_vec(self, vec: Vector) -> Vector:
+        """Multiply a vector by a matrix."""
+        if vec.size() != self.shape()[0]:
+            raise ValueError("Vector size must match the matrix row size.")
+
+        result = Vector([0.0 for _ in range(vec.size())])
+        for i in range(self.shape()[0]):
+            for j in range(vec.size()):
+                result[i] = fma(self[i, j], vec[j], result[i])
+        return result
+
+    def mul_mat(self, mat: "Matrix") -> "Matrix":
+        if self.shape()[1] != mat.shape()[0]:
+            raise ValueError("Dimensions are incompatible for multiplication.")
+        # Init result matrix
+        result = Matrix([
+            [0.0 for _ in range(self.shape()[0])]
+            for _ in range(mat.shape()[1])
+        ])
+        # Iterate self rows
+        for i in range(self.shape()[0]):
+            # Iterate mat columns
+            for j in range(mat.shape()[1]):
+                # Iterate over the shared dimension
+                for k in range(mat.shape()[0]):
+                    result[i, j] = fma(self[i, k], mat[k, j], result[i, j])
+        return result
+
+    def trace(self) -> "Matrix":
+        if self.shape()[0] != self.shape()[1]:
+            raise ValueError("Trace is only available for squared matrices")
+
+        res = 0
+        for i in range(self.shape()[0]):
+            res += self[i, i]
+        return res
+
+    def transpose(self) -> "Matrix":
+        return Matrix([
+            [self[j, i] for j in range(self.shape()[0])]
+            for i in range(self.shape()[1])
+        ])

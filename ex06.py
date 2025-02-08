@@ -30,6 +30,12 @@ What Does the Cross Product Represent?
     1. A vector that is perpendicular to both input vectors
     2. Direction given by the right-hand rule
     3. Magnitude represents the area of the parallelogram formed
+
+Use Cases:
+    - Calculating the normal vector of a plane
+    - Determining the orientation of a polygon
+    - Calculating the torque in physics
+    - Generating random vectors for 3D graphics
 """
 
 
@@ -41,13 +47,13 @@ def cross(u: "Vector", v: "Vector") -> "Vector":
     """Computes the cross product of two 3D vectors."""
     if u.size() != 3 or v.size() != 3:
         raise ValueError("Cross product is only defined for 3D vectors.")
-    x1, y1, z1 = u.values
-    x2, y2, z2 = v.values
+    Ux, Uy, Uz = u.values
+    Vx, Vy, Vz = v.values
 
     return Vector([
-        fma(y1, z2, -fma(z1, y2, 0)),  # w_x = (y1 * z2 - z1 * y2)
-        fma(z1, x2, -fma(x1, z2, 0)),  # w_y = (z1 * x2 - x1 * z2)
-        fma(x1, y2, -fma(y1, x2, 0))   # w_z = (x1 * y2 - y1 * x2)
+        fma(Uy, Vz, -fma(Uz, Vy, 0)),  # w_x = (Uy * Vz - Uz * Vy)
+        fma(Uz, Vx, -fma(Ux, Vz, 0)),  # w_y = (Uz * Vx - Ux * Vz)
+        fma(Ux, Vy, -fma(Uy, Vx, 0))   # w_z = (Ux * Vy - Uy * Vx)
     ])
 
 
