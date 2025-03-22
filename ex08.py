@@ -36,23 +36,19 @@ def test_trace():
     print("--- Matrix trace ---")
     A = Matrix([[1, 2],
                 [3, 4]])
-    print(A.trace())  # 5
     assert A.trace() == 5
 
     A = Matrix([[1.0, 0.0],
                 [0.0, 1.0]])
-    print(A.trace())  # 2.0
     assert A.trace() == 2.0
 
     A = Matrix([[3.0, -5.0],
                 [6.0, 8.0]])
-    print(A.trace())  # 11.0
     assert A.trace() == 11.0
 
     A = Matrix([[-2., -8., 4.],
                 [1., -23., 4.],
                 [0., 6., 4.]])
-    print(A.trace())  # -21.0
     assert A.trace() == -21.0
 
 

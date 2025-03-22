@@ -61,27 +61,27 @@ def test_cross():
     # Cross product of two perpendicular vectors
     v1 = Vector([0, 0, 1])
     v2 = Vector([1, 0, 0])
-    assert cross(v1, v2).values == [0, 1, 0]
+    assert cross(v1, v2) == Vector([0, 1, 0])
 
     # Cross product of two parallel vectors
     v1 = Vector([1, 0, 0])
     v2 = Vector([2, 0, 0])
-    assert cross(v1, v2).values == [0, 0, 0]
+    assert cross(v1, v2) == Vector([0, 0, 0])
 
     # Cross product of two arbitrary vectors
     v1 = Vector([1, 2, 3])
     v2 = Vector([4, 5, 6])
-    assert cross(v1, v2).values == [-3, 6, -3]
+    assert cross(v1, v2) == Vector([-3, 6, -3])
 
     # Cross product of two arbitrary vectors
     v1 = Vector([1, 2, 3])
     v2 = Vector([4, 5, 6])
-    assert cross(v1, v2).values == [-3, 6, -3]
+    assert cross(v1, v2) == Vector([-3, 6, -3])
 
     # Cross product of two arbitrary vectors
     v1 = Vector([4, 2, -3])
     v2 = Vector([-2, -5, 16])
-    assert cross(v1, v2).values == [17, -58, -16]
+    assert cross(v1, v2) == Vector([17, -58, -16])
 
 
 def main():

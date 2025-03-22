@@ -29,6 +29,14 @@ class Vector(Generic[T]):
         """Print the vector in a readable format."""
         return "Vector: " + str(self.values)
 
+    def __eq__(self, other):
+        """== operator to compare two vectors"""
+        if not isinstance(other, Vector):
+            return False
+        if self.size() != other.size():
+            return False
+        return self.values == other.values
+
     def size(self) -> int:
         """Return the size (length) of the vector."""
         return len(self.values)
@@ -135,6 +143,18 @@ class Matrix(Generic[T]):
         """Print the matrix in a readable format."""
         rows = ["[" + ", ".join(map(str, row)) + "]" for row in self.values]
         return "Matrix:\n" + "\n".join(rows)
+
+    def __eq__(self, other):
+        """== operator to compare two matrices"""
+        if not isinstance(other, Matrix):
+            return False
+        if self.shape() != other.shape():
+            return False
+        for i in range(self.shape()[0]):
+            for j in range(self.shape()[1]):
+                if abs(self[i][j] - other[i][j]) > 1e-8:
+                    return False
+        return True
 
     def to_vector(self) -> "Vector":
         """Reshape the matrix into a vector."""

@@ -1,5 +1,5 @@
 """
-- What is the Dot Product Between Two Vectors?
+            Dot Product of two vectors?
 
     The dot product is a way to multiply two vectors
     and get a single number (a scalar) as the result.

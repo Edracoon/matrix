@@ -40,16 +40,14 @@ def test_transpose():
     print("--- Matrix trace ---")
     A = Matrix([[1, 2],
                 [3, 4]])
-    print(A.transpose())
-    assert A.transpose().values == [[1, 3],
-                                    [2, 4]]
+    assert A.transpose() == Matrix([[1, 3],
+                                    [2, 4]])
 
     A = Matrix([[1, 2, 3],
                [4, 5, 6]])
-    print(A.transpose())
-    assert A.transpose().values == [[1, 4],
+    assert A.transpose() == Matrix([[1, 4],
                                     [2, 5],
-                                    [3, 6]]
+                                    [3, 6]])
 
 
 def main():

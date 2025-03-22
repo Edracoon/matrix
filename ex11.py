@@ -6,10 +6,6 @@ and other matrices related to algebra, it actually represents the matrix
 in terms of a real number which can be used in solving a system of a
 linear equation and finding the inverse of a matrix.
 
-A determinant equal to zero means that a matrix is a singular matrix.
-A matrix is singular if it does not have an inverse, which means it
-cannot be used to solve systems of linear equations.
-
 Geometric Meaning of the Determinant
 
 The determinant represents the scaling factor
@@ -18,6 +14,10 @@ of the transformation described by the matrix :
     det(A) > 0 → The transfo preserves orientation (does not flip space).
     det(A) < 0 → The transfo flips space (mirror effect).
     det(A) = 0 → The transfo collapses space into a lower dimension.
+
+A determinant equal to zero means that a matrix is a singular matrix.
+A matrix is singular if it does not have an inverse, which means it
+cannot be used to solve systems of linear equations.
 """
 from lib import Matrix
 

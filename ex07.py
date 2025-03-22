@@ -66,26 +66,22 @@ def test_mul_vec():
     M = Matrix([[1.0, 0.0],
                 [0.0, 1.0]])
     V = Vector([4.0, 2.0])
-    print(M.mul_vec(V))  # [4.0, 2.0]
-    assert M.mul_vec(V).values == [4.0, 2.0]
+    assert M.mul_vec(V) == Vector([4.0, 2.0])
 
     M = Matrix([[2.0, 0.0],
                 [0.0, 2.0]])
     V = Vector([4.0, 2.0])
-    print(M.mul_vec(V))  # [8.0, 4.0]
-    assert M.mul_vec(V).values == [8.0, 4.0]
+    assert M.mul_vec(V) == Vector([8.0, 4.0])
 
     M = Matrix([[2.0, -2.0],
                 [-2.0, 2.0]])
     V = Vector([4.0, 2.0])
-    print(M.mul_vec(V))  # [4.0, -4.0]
-    assert M.mul_vec(V).values == [4.0, -4.0]
+    assert M.mul_vec(V) == Vector([4.0, -4.0])
 
     M = Matrix([[1.0, 2.0],
                 [3.0, 4.0]])
     V = Vector([5.0, 6.0])
-    print(M.mul_vec(V))  # [17.0, 39.0]
-    assert M.mul_vec(V).values == [17.0, 39.0]
+    assert M.mul_vec(V) == Vector([17.0, 39.0])
 
 
 def test_mul_mat():
@@ -94,29 +90,28 @@ def test_mul_mat():
                 [3, 4]])
     B = Matrix([[5, 6],
                 [7, 8]])
-    print(A.mul_mat(B))  # [[19.0, 22.0], [43.0, 50.0]}
-    assert A.mul_mat(B).values == [[19.0, 22.0], [43.0, 50.0]]
+    assert A.mul_mat(B) == Matrix([[19.0, 22.0], [43.0, 50.0]])
 
     A = Matrix([[1.0, 0.0],
                 [0.0, 1.0]])
     B = Matrix([[1.0, 0.0],
                 [0.0, 1.0]])
-    print(A.mul_mat(B))  # [[1.0, 0.0], [0.0, 1.0]]
-    assert A.mul_mat(B).values == [[1.0, 0.0], [0.0, 1.0]]
+    assert A.mul_mat(B) == Matrix([[1.0, 0.0], [0.0, 1.0]])
 
     A = Matrix([[3.0, -5.0],
                 [6.0, 8.0]])
     B = Matrix([[2.0, 1.0],
                 [4.0, 2.0]])
-    print(A.mul_mat(B))  # [[-14.0, -7.0], [44.0, 22.0]]
-    assert A.mul_mat(B).values == [[-14.0, -7.0], [44.0, 22.0]]
+    assert A.mul_mat(B) == Matrix([[-14.0, -7.0], [44.0, 22.0]])
 
 
 def main():
     try:
         test_mul_vec()
+        print("test_mul_vec() tests passed.")
+
         test_mul_mat()
-        print("All tests passed.")
+        print("test_mul_mat() tests passed.")
     except AssertionError:
         print("Some tests failed.")
 

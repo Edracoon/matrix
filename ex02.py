@@ -89,22 +89,36 @@ def lerp(
     raise ValueError("Invalid input types.")
 
 
+def test_lerp():
+    res = lerp(0.0, 1.0, 0.0)
+    assert res == 0.0
+
+    res = lerp(0.0, 1.0, 1.0)
+    assert res == 1.0
+
+    res = lerp(0.0, 1.0, 0.5)
+    assert res == 0.5
+
+    res = lerp(21.0, 42.0, 0.3)
+    assert res == 27.3
+
+    res = lerp(Vector([2.0, 1.0]), Vector([4.0, 2.0]), 0.3)
+    assert res == Vector([2.6, 1.3])
+
+    res = lerp(
+        Matrix([[2.0, 1.0], [3.0, 4.0]]),
+        Matrix([[20.0, 10.0], [30.0, 40.0]]),
+        0.5
+    )
+    assert res == Matrix([[11.0, 5.5], [16.5, 22.0]])
+
+
 def main():
     try:
-        print(lerp(0.0, 1.0, 0.0))  # 0.0
-        print(lerp(0.0, 1.0, 1.0))  # 1.0
-        print(lerp(0.0, 1.0, 0.5))  # 0.5
-        print(lerp(21.0, 42.0, 0.3))  # 27.3
-        print(lerp(Vector([2.0, 1.0]), Vector([4.0, 2.0]), 0.3))  # [2.6, 1.3]
-        print(
-            lerp(
-                Matrix([[2.0, 1.0], [3.0, 4.0]]),
-                Matrix([[20.0, 10.0], [30.0, 40.0]]),
-                0.5,
-            )
-        )  # [[11.0, 5.5], [16.5, 22.0]]
-    except Exception as e:
-        print(e)
+        test_lerp()
+        print("All tests passed.")
+    except AssertionError:
+        print("Some tests failed.")
 
 
 if __name__ == "__main__":

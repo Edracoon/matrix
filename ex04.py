@@ -52,25 +52,43 @@ from lib import Vector
 
 def test_all_norms():
     u = Vector([0, 0, 0])
-    print(f"{u.norm_1()}, {u.norm()}, {u.norm_inf()}")
+    assert u.norm_1() == 0.0
+    assert u.norm() == 0.0
+    assert u.norm_inf() == 0.0
     # 0.0, 0.0, 0.0
 
     u = Vector([1, 2, 3])
-    print(f"{u.norm_1()}, {u.norm()}, {u.norm_inf()}")
+    assert u.norm_1() == 6.0
+    assert u.norm() >= 3.741
+    assert u.norm_inf() == 3.0
     # 6.0, 3.74165738, 3.0
 
     u = Vector([-1, -2, -3])
-    print(f"{u.norm_1()}, {u.norm()}, {u.norm_inf()}")
+    assert u.norm_1() == 6.0
+    assert u.norm() >= 3.741
+    assert u.norm_inf() == 3.0
     # 6.0, 3.74165738, 3.0
 
     u = Vector([-1, -2])
-    print(f"{u.norm_1()}, {u.norm()}, {u.norm_inf()}")
+    assert u.norm_1() == 3.0
+    assert u.norm() >= 2.236
+    assert u.norm_inf() == 2.0
     # 3.0, 2.23606798, 2.0
 
     u = Vector([1, 0, -8])
-    print(f"{u.norm_1()}, {u.norm()}, {u.norm_inf()}")
+    assert u.norm_1() == 9.0
+    assert u.norm() >= 8.062
+    assert u.norm_inf() == 8.0
     # 9.0, 8.06225775, 8.0
 
 
+def main():
+    try:
+        test_all_norms()
+        print("All tests passed")
+    except AssertionError:
+        print("Some tests failed")
+
+
 if __name__ == "__main__":
-    test_all_norms()
+    main()
