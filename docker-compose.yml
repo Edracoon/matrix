@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  python-env:
+    image: python:3.13.1-slim    # Utilisons 3.12 car 3.13.1 n'existe pas encore
+    working_dir: /app
+    volumes:
+      - ./:/app
+    command: tail -f /dev/null  # Garde le conteneur en vie
