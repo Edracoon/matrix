@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   py-env:
     image: python:3.13.1-slim
